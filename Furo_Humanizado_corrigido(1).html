@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Furo Humanizado</title><meta name="theme-color" content="#f4577a">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--p:#f4577a;--p2:#f87a97;--pl:#fde4ea;--bg:#fff5f7;--tx:#2b2b33;--mu:#8a8a96;--bd:#ece6e9;--ok:#6cc9a4;--card:#fff;--sh:0 4px 14px rgba(244,87,122,.12);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#fff5f7}}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{font-family:Poppins,system-ui,-apple-system,"Segoe UI",sans-serif;background:#f3e9ec;color:var(--tx);font-size:14px;background-color:#f3e9ec}
+#app{max-width:430px;margin:0 auto;min-height:100vh;background:#fff;position:relative;overflow:hidden}
+.hd{background:linear-gradient(180deg,var(--p2),var(--p));color:#fff;height:56px;display:flex;align-items:center;justify-content:center;position:relative;font-weight:500;font-size:16px}
+.hd button{position:absolute;top:0;height:56px;width:52px;background:none;border:0;color:#fff;font-size:22px;cursor:pointer}
+.hd .l{left:0}.hd .r{right:0}
+.login{background:linear-gradient(180deg,#fde4ea,#fff5f7);min-height:100vh;padding:56px 22px 24px;text-align:center}
+.logo{display:flex;align-items:center;justify-content:center;gap:6px}
+.logo .t{text-align:left;line-height:1}
+.logo .a{font-family:"Great Vibes",cursive;color:var(--p);font-size:54px;display:block}
+.logo .b{font-family:"Great Vibes",cursive;color:#5a4a50;font-size:34px;display:block;margin-top:-6px}
+.sl{letter-spacing:2px;font-size:10px;color:#6b5b61;margin:6px 0 40px}
+.box{background:#fff;border-radius:20px;padding:20px;box-shadow:var(--sh);text-align:left}
+label{display:block;font-size:13px;margin:12px 0 6px;color:#3a3a44}
+.in{width:100%;height:46px;border:1px solid var(--bd);border-radius:10px;padding:0 14px;font:inherit;color:var(--tx);background:#fff;outline:none}
+.in:focus{border-color:var(--p)}
+textarea.in{height:78px;padding:12px;resize:none}
+.btn{width:100%;height:48px;border:0;border-radius:12px;background:var(--p);color:#fff;font:600 14px Poppins,sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:var(--sh)}
+.btn.o{background:#fff;color:var(--p);border:1.5px solid var(--p);box-shadow:none}
+.btn.g{background:var(--ok)}
+.pro{margin-top:22px;color:#6b5b61;font-size:13px}
+.choose{background:var(--bg);min-height:100vh;display:flex;flex-direction:column}
+.choose .body{padding:16px;flex:1}
+.choose p.s{text-align:center;margin:6px 0 16px}
+.opt{display:flex;align-items:center;gap:14px;border-radius:20px;padding:16px;margin-bottom:18px;cursor:pointer;box-shadow:var(--sh);position:relative;min-height:150px}
+.opt.a{background:linear-gradient(135deg,#fde4ea,#fff5f7);border:1.5px solid #f8c3d0}
+.opt.b{background:linear-gradient(135deg,#ece3fb,#f6f1ff);border:1.5px solid #d9c9f5}
+.opt h3{font-size:20px;line-height:1.2;font-weight:600;margin-bottom:8px}
+.opt small{color:#555;font-size:13px}
+.go{position:absolute;right:14px;bottom:14px;width:34px;height:34px;border-radius:50%;background:var(--p);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px}
+.opt.b .go{background:#8e5fd0}
+.exit{border-top:1px solid var(--bd);background:#fff;padding:16px;text-align:center;color:#555;cursor:pointer}
+.steps{display:flex;justify-content:space-between;padding:18px 18px 6px;position:relative}
+.steps:before{content:"";position:absolute;left:12%;right:12%;top:34px;height:2px;background:#e3dde0}
+.st{flex:1;text-align:center;font-size:10px;color:#555;position:relative}
+.st i{display:flex;width:32px;height:32px;border-radius:50%;margin:0 auto 6px;background:#ddd;color:#fff;align-items:center;justify-content:center;font-style:normal;font-size:14px;position:relative}
+.st.cur i{background:var(--p);box-shadow:0 0 0 4px var(--pl)}
+.st.done i{background:var(--ok)}
+.wrap{padding:6px 20px 24px}
+.wrap h2{font-size:17px;font-weight:600;margin:16px 0 6px}
+.req{color:var(--p)}
+.nav{display:flex;gap:12px;margin-top:26px}
+.nav .btn{flex:1}.nav .btn.o{flex:.8}
+.yn{display:flex;gap:10px}
+.yn div{flex:1;height:42px;border:1px solid var(--bd);border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.yn div.on{background:var(--pl);border-color:var(--p);color:var(--p)}
+.sum{border:1px solid var(--bd);border-radius:14px;overflow:hidden;margin-top:8px}
+.sum .top{background:var(--pl);padding:12px 14px}
+.sum .row{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.sum .row span{font-size:11px;color:#555;display:block}
+.sum .row b{font-weight:500;font-size:13px}
+.sec{padding:12px 14px;font-size:12.5px;line-height:1.7}
+.sec+.sec{border-top:1px solid var(--bd)}
+.sec h4{font-size:12.5px;font-weight:600}
+.sec b{font-weight:600}
+.list{background:var(--bg);min-height:calc(100vh - 56px);padding:14px 14px 90px}
+.search{display:flex;gap:8px;margin-bottom:14px}
+.search .in{flex:1;height:40px}
+.fb{width:40px;height:40px;border-radius:10px;border:1px solid var(--bd);background:#fff;cursor:pointer;font-size:16px}
+.fb.on{background:var(--pl);border-color:var(--p)}
+.card{background:#fff;border-radius:14px;padding:12px;display:flex;gap:12px;margin-bottom:12px;box-shadow:var(--sh);cursor:pointer;position:relative}
+.card .i{flex:1;font-size:12px;color:#555;line-height:1.6}
+.card .i b{font-size:15px;color:var(--tx);font-weight:600;display:block}
+.card .d{position:absolute;right:12px;top:10px;font-size:10.5px;color:var(--mu)}
+.card .c{align-self:center;color:#777;font-size:20px}
+.card .i em{font-style:normal;color:var(--tx);font-weight:500}
+.fab{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);width:min(240px,70vw);height:48px;border-radius:26px;background:var(--p);color:#fff;border:0;font:600 13px Poppins,sans-serif;box-shadow:0 6px 16px rgba(244,87,122,.4);cursor:pointer;margin-left:0}
+.emp{text-align:center;color:var(--mu);padding:40px 10px}
+.det{background:var(--bg);min-height:calc(100vh - 56px);padding:14px}
+.dc{background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--sh);margin-bottom:14px}
+.dc .top{background:var(--pl);padding:14px;display:flex;gap:14px;align-items:center}
+.dc .top b{font-size:19px;display:block;font-weight:600}
+.dc .sec{font-size:13px}
+.ov{position:absolute;inset:0;background:rgba(0,0,0,.4);z-index:5}
+.dr{position:absolute;left:0;top:0;bottom:0;width:78%;background:#fff;z-index:6;animation:sl .2s}
+@keyframes sl{from{transform:translateX(-100%)}to{transform:none}}
+.dr .h{background:var(--bg);padding:34px 20px 16px;border-bottom:1px solid var(--bd)}
+.dr .h .logo{justify-content:flex-start}
+.dr .h .a{font-size:30px}.dr .h .b{font-size:20px;margin-top:-4px}
+.dr .h small{display:block;color:var(--mu);margin-top:10px;font-size:11px}
+.dr .h strong{font-weight:500}
+.mi{display:flex;gap:16px;align-items:center;padding:15px 22px;cursor:pointer;color:#444}
+.mi span{width:22px;text-align:center}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#333;color:#fff;padding:10px 18px;border-radius:20px;font-size:13px;z-index:20}
+.err{border-color:#e0446a!important}
+.tabs{display:flex;gap:8px;margin-bottom:12px;overflow-x:auto}.tabs span{padding:7px 14px;border-radius:18px;background:#fff;border:1px solid var(--bd);font-size:12px;white-space:nowrap;cursor:pointer}.tabs span.on{background:var(--p);color:#fff;border-color:var(--p)}
+.kp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}.kp div{background:#fff;border-radius:14px;padding:14px;box-shadow:var(--sh)}.kp b{display:block;font-size:24px;color:var(--p)}.kp small{color:var(--mu)}
+.bars{display:flex;align-items:flex-end;gap:10px;height:130px;padding:10px 4px 0}.bars div{flex:1;text-align:center;font-size:10px;color:var(--mu)}.bars i{display:block;background:linear-gradient(180deg,var(--p2),var(--p));border-radius:6px 6px 0 0;margin-bottom:4px;min-height:3px}
+.lr{display:flex;align-items:center;gap:12px;background:#fff;border-radius:12px;padding:12px;margin-bottom:10px;box-shadow:var(--sh)}.lr .ck{width:24px;height:24px;border-radius:50%;border:2px solid var(--p);display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;flex:none}.lr.dn .ck{background:var(--ok);border-color:var(--ok)}.lr.dn .tt{text-decoration:line-through;color:var(--mu)}.lr .tt{flex:1}.lr small{color:var(--mu);display:block}.lr .x{color:var(--mu);cursor:pointer;font-size:18px}
+.pad{background:var(--bg);min-height:calc(100vh - 56px);padding:14px}
+.pw{position:relative}.pw .in{padding-right:44px}.pw span{position:absolute;right:0;top:0;height:46px;width:44px;display:flex;align-items:center;justify-content:center;cursor:pointer}.rls{margin-top:8px;font-size:12px}.rl{color:var(--mu);line-height:1.7}.rl.ok{color:#2f9e72}</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+var S={scr:"login",step:0,f:{},edit:null,sel:null,q:"",flt:false,tab:"all",menu:false,cad:[],lem:[],cfg:{nome:"Meu Studio"},users:[],user:null,fails:0,lock:0,toast:"",ready:false,err:"",mode:""};
+var A={db:null},LW={},$=document.getElementById("app"),toastTimer=null;
+function lsGet(k){try{return JSON.parse(localStorage.getItem("fh_"+k))||[]}catch(e){return[]}}
+function lsSet(k,v){try{localStorage.setItem("fh_"+k,JSON.stringify(v))}catch(e){}}
+function fail(e){msg("Não foi possível salvar: "+((e&&e.message)||"erro"))}
+function watch(col,cb){if(A.db){A.db.collection(col).onSnapshot(function(s){cb(s.docs.map(function(d){var o=d.data()||{};o.id=d.id;return o}))},function(){S.err="Sem conexão com o banco de dados";R()})}else{LW[col]=cb;cb(lsGet(col))}}
+function put(col,o){if(A.db)return A.db.doc(col+"/"+o.id).set(o).catch(function(e){fail(e);throw e});var a=lsGet(col).filter(function(x){return x.id!=o.id});a.push(o);lsSet(col,a);LW[col](a);return Promise.resolve()}
+function rm(col,id){if(A.db)return A.db.doc(col+"/"+id).delete().catch(function(e){fail(e);throw e});var a=lsGet(col).filter(function(x){return x.id!=id});lsSet(col,a);LW[col](a);return Promise.resolve()}
+function upd(){if(S.scr=="list"&&document.getElementById("cl"))sr();else if(S.scr!="form"&&S.scr!="login"&&S.scr!="reg"&&S.scr!="cfg")R()}
+(async function(){var u=null;try{if(window.claude&&claude.use)u=await Promise.race([claude.use("db"),new Promise(function(r){setTimeout(function(){r(null)},6000)})])}catch(e){}
+A.db=u;S.mode=u?"online":"local";
+watch("cadastros",function(a){S.cad=a.sort(function(x,y){return(y.data||"")>(x.data||"")?1:-1});upd()});
+watch("lembretes",function(a){S.lem=a.sort(function(x,y){return(x.data||"")>(y.data||"")?1:-1});upd()});
+watch("usuarios",function(a){S.users=a});
+watch("config",function(a){var c=a.find(function(x){return x.id=="studio"});if(c)S.cfg=c;upd()});
+S.ready=true;R()})();
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","\'":"&#39;"}[c]})}
+function fd(d){if(!d)return"";var p=d.slice(0,10).split("-");return p[2]+"/"+p[1]+"/"+p[0]}
+function fdt(d){return fd(d)+" às "+d.slice(11,16)}
+function go(s){S.scr=s;S.menu=false;window.scrollTo(0,0);R()}
+function msg(t){S.toast=t;R();if(toastTimer)clearTimeout(toastTimer);toastTimer=setTimeout(function(){S.toast="";R();toastTimer=null},2500)}
+function gem(sz){return '<svg width="'+sz+'" height="'+sz+'" viewBox="0 0 100 100" style="flex:none"><path d="M20 35l15-18h30l15 18-30 50z" fill="#b98af0"/><path d="M20 35h60M35 17l15 18 15-18M50 35l-15 0 15 50 15-50" fill="none" stroke="#e7d6ff" stroke-width="2"/></svg>'}
+function baby(sz){return '<svg width="'+sz+'" height="'+sz+'" viewBox="0 0 100 100" style="flex:none"><circle cx="50" cy="55" r="34" fill="#ffd8bd"/><path d="M30 80q20 22 40 0l8 20H22z" fill="#f78ca2"/><circle cx="16" cy="58" r="7" fill="#ffd8bd"/><circle cx="84" cy="58" r="7" fill="#ffd8bd"/><path d="M26 44q4-26 28-24q22 2 20 24q-10-14-24-14q-14 0-24 14z" fill="#c98a5a"/><path d="M50 22q-6-8-2-13q6 2 2 13z" fill="#c98a5a"/><circle cx="40" cy="56" r="4.5" fill="#3a2a2a"/><circle cx="60" cy="56" r="4.5" fill="#3a2a2a"/><circle cx="41.5" cy="54.5" r="1.4" fill="#fff"/><circle cx="61.5" cy="54.5" r="1.4" fill="#fff"/><circle cx="32" cy="66" r="5" fill="#ffb3a8" opacity=".7"/><circle cx="68" cy="66" r="5" fill="#ffb3a8" opacity=".7"/><path d="M42 68q8 8 16 0q-8 3-16 0z" fill="#e8574d"/><path d="M62 22l12-7v14zM62 22l-8-8v14z" fill="#f4577a" transform="translate(-4 4)"/></svg>'}
+function av(c,sz){return c.tipo=="piercing"?gem(sz):baby(sz)}
+function logo(small){return '<div class="logo"><svg width="'+(small?44:80)+'" height="'+(small?50:90)+'" viewBox="0 0 80 90" fill="none" stroke="#6b5b61" stroke-width="2.5" stroke-linecap="round"><path d="M40 6C18 6 8 24 12 46c3 14 10 20 8 32M40 6c20 0 28 16 22 32-4 10-14 12-14 24 0 10-8 16-18 16M30 30c-6 4-6 16 2 20"/><path d="M42 34c-5-6-14 0-8 8l8 8 8-8c6-8-3-14-8-8z" fill="#f4577a" stroke="#f4577a" transform="translate(-2 -2)"/></svg><div class="t"><span class="a">Furo</span><span class="b">Humanizado</span></div></div>'}
+function R(){var h="",s=S.scr;
+if(s=="login")h=vLogin();else if(s=="choose")h=vChoose();else if(s=="form")h=vForm();else if(s=="list")h=vList();else if(s=="det")h=vDet();else if(s=="rep")h=vRep();else if(s=="lem")h=vLem();else if(s=="cfg")h=vCfg();else if(s=="reg")h=vReg();
+if(S.menu)h+=vMenu();if(S.toast)h+='<div class="toast">'+esc(S.toast)+'</div>';
+$.innerHTML=h;var fb=document.getElementById("fab");if(fb)fb.style.marginLeft="0"}
+function hdm(t){return '<div class="hd"><button class="l" onclick="S.menu=true;R()">☰</button>'+t+'</div>'}
+function hx(b){return Array.from(new Uint8Array(b)).map(function(x){return("0"+x.toString(16)).slice(-2)}).join("")}
+async function hp(pw,salt){var e=new TextEncoder(),k=await crypto.subtle.importKey("raw",e.encode(pw),"PBKDF2",false,["deriveBits"]);return hx(await crypto.subtle.deriveBits({name:"PBKDF2",salt:e.encode(salt),iterations:150000,hash:"SHA-256"},k,256))}
+function pwR(p){return[["Mínimo de 8 caracteres",p.length>=8],["Pelo menos uma letra",/[A-Za-z]/.test(p)],["Pelo menos um número",/\d/.test(p)],["Pelo menos um caractere especial (! @ # $ % ...)",/[^A-Za-z0-9]/.test(p)]]}
+function pwOk(p){return pwR(p).every(function(r){return r[1]})}
+function rules(p){return pwR(p).map(function(r){return '<div class="rl '+(r[1]?"ok":"")+'">'+(r[1]?"✓":"○")+' '+r[0]+'</div>'}).join("")}
+function chk(e){document.getElementById("rl").innerHTML=rules(e.value)}
+function eye(id,b){var e=document.getElementById(id);e.type=e.type=="password"?"text":"password";b.style.opacity=e.type=="text"?1:.5}
+function pwf(id,ph,ev){return '<div class="pw"><input class="in" id="'+id+'" type="password" placeholder="'+ph+'" autocomplete="'+(id=="pw"?"current-password":"new-password")+'" '+(ev||"")+'><span onclick="eye(\''+id+'\',this)" style="opacity:.5">👁</span></div>'}
+function vLogin(){return '<div class="login">'+logo()+'<div class="sl">CUIDADO · AMOR · SEGURANÇA</div><p style="margin-bottom:12px">Faça login para continuar</p><div class="box"><label style="margin-top:0">Usuário (nome ou e-mail)</label><input class="in" id="u" placeholder="Seu nome ou e-mail" autocomplete="username" autocapitalize="none"><label>Senha</label>'+pwf("pw","Digite sua senha")+'<div style="height:18px"></div><button class="btn" onclick="login()">'+(S.ready?"ENTRAR":"CARREGANDO…")+'</button></div><div class="pro" style="color:var(--p);cursor:pointer" onclick="go(\'reg\')">Primeiro acesso? Criar conta</div><div class="pro" style="font-size:11px;margin-top:10px">'+(S.ready?(S.mode=="online"?"☁ Dados salvos no banco de dados online":"⚠ Modo local: dados salvos só neste aparelho"):"Conectando ao banco de dados…")+'</div></div>'}
+function vReg(){return '<div class="login"><div style="display:flex;justify-content:center">'+logo(1)+'</div><h2 style="margin:14px 0 4px;font-weight:600;font-size:18px">Criar conta</h2><p style="margin-bottom:12px;color:#6b5b61">Cadastre seu acesso profissional</p><div class="box"><label style="margin-top:0">Seu nome</label><input class="in" id="rn" placeholder="Nome completo" autocomplete="name"><label>Usuário (nome ou e-mail)</label><input class="in" id="ru" placeholder="Como vai entrar no app" autocomplete="username" autocapitalize="none"><label>Senha</label>'+pwf("rp","Crie uma senha",'oninput="chk(this)"')+'<div id="rl" class="rls">'+rules("")+'</div><label>Confirmar senha</label>'+pwf("rp2","Repita a senha")+'<div style="height:18px"></div><button class="btn" onclick="reg()">CRIAR CONTA</button></div><div class="pro" style="color:var(--p);cursor:pointer" onclick="go(\'login\')">← Já tenho conta</div></div>'}
+async function login(){if(!S.ready)return msg("Aguarde, conectando…");var u=(g("u")||"").toLowerCase(),p=document.getElementById("pw").value;if(!u||!p)return msg("Informe usuário e senha");
+if(Date.now()<S.lock)return msg("Muitas tentativas. Aguarde "+Math.ceil((S.lock-Date.now())/1000)+"s");
+var c=S.users.find(function(x){return x.login==u}),ok=false;try{if(c)ok=(await hp(p,c.salt))===c.hash}catch(e){return msg("Navegador sem suporte a criptografia")}
+if(!ok){if(++S.fails>=5){S.lock=Date.now()+30000;S.fails=0}return msg("Usuário ou senha incorretos")}
+S.fails=0;S.user=c;go("choose")}
+async function reg(){if(!S.ready)return msg("Aguarde, conectando…");var n=g("rn"),u=(g("ru")||"").toLowerCase(),p=document.getElementById("rp").value,p2=document.getElementById("rp2").value;
+if(!n||!u)return msg("Preencha nome e usuário");if(u.length<3)return msg("Usuário muito curto");if(u.indexOf("@")>-1&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(u))return msg("E-mail inválido");
+if(!pwOk(p))return msg("A senha não atende aos requisitos");if(p!==p2)return msg("As senhas não conferem");
+if(S.users.some(function(x){return x.login==u}))return msg("Este usuário já existe");
+try{var a=new Uint8Array(16);crypto.getRandomValues(a);var salt=hx(a),h=await hp(p,salt),o={id:"u"+Date.now()+hx(a).slice(0,6),login:u,nome:n,salt:salt,hash:h,criado:new Date().toISOString()};
+await put("usuarios",o);if(!A.db){}S.user=o;go("choose");msg("Conta criada")}catch(e){msg("Não foi possível criar a conta")}}
+function out(){S.user=null;go("login")}
+function vChoose(){return '<div class="choose"><div class="hd">Escolha o Atendimento</div><div class="body"><p class="s">Selecione o tipo de procedimento</p><div class="opt a" onclick="newCad(\'bebe\')">'+baby(120)+'<div><h3>Furo<br>Humanizado</h3><small>Especializado para<br>bebês e crianças</small></div><span class="go">›</span></div><div class="opt b" onclick="newCad(\'piercing\')">'+gem(110)+'<div><h3>Piercing</h3><small>Diversos tipos de<br>piercings</small></div><span class="go">›</span></div><p class="s" style="color:var(--p);cursor:pointer" onclick="go(\'list\')">Ver meus cadastros (' + S.cad.length + ')</p></div><div class="exit" onclick="out()">⎋ &nbsp;Sair</div></div>'}
+function newCad(t){S.f={tipo:t,nome:"",idade:"",nasc:"",mae:"",pai:"",tel:"",alergia:"",desc:"",obs:"",local:"",joia:""};S.edit=null;S.step=0;go("form")}
+var STI=["☺","♥","♡","✓"];
+function vForm(){var f=S.f,s=S.step,P=f.tipo=="piercing",N=P?["Cliente","Contato","Saúde","Confirmação"]:["Bebê","Responsáveis","Saúde","Confirmação"],h='<div class="hd"><button class="l" onclick="back()">←</button>'+(P?"Piercing":"Furo Humanizado")+'</div><div class="steps">';
+for(var i=0;i<4;i++)h+='<div class="st '+(i<s?"done":i==s?"cur":"")+'"><i>'+(i<s?"✓":STI[i])+'</i>'+N[i]+'</div>';
+h+='</div><div class="wrap">';
+if(s==0)h+='<h2>'+(P?"Dados do Cliente":"Dados do Bebê")+'</h2><label>Nome '+(P?"do cliente":"do bebê")+' <span class="req">*</span></label><input class="in" id="nome" maxlength="50" placeholder="Digite o nome" value="'+esc(f.nome)+'"><label>Idade <span class="req">*</span></label><input class="in" id="idade" placeholder="Ex: 3 meses, 1 ano, 2 anos" value="'+esc(f.idade)+'"><label>Data de nascimento <span class="req">*</span></label><input class="in" id="nasc" type="date" value="'+esc(f.nasc)+'" onchange="autoAge(this.value)">'+(P?'<label>Local do piercing</label><input class="in" id="local" placeholder="Ex: lóbulo, hélix, nariz" value="'+esc(f.local)+'"><label>Joia / material</label><input class="in" id="joia" placeholder="Ex: titânio, ouro 18k" value="'+esc(f.joia)+'">':"")+'<div class="nav"><button class="btn" onclick="next()">PRÓXIMO &nbsp;→</button></div>';
+if(s==1)h+='<h2>'+(P?"Contato":"Responsáveis")+'</h2><label>Nome '+(P?"do responsável (se menor)":"da mãe")+(P?"":' <span class="req">*</span>')+'</label><input class="in" id="mae" maxlength="100" placeholder="Digite o nome" value="'+esc(f.mae)+'"><label>Nome do pai</label><input class="in" id="pai" maxlength="100" placeholder="Digite o nome do pai" value="'+esc(f.pai)+'"><label>Telefone (WhatsApp) <span class="req">*</span></label><input class="in" id="tel" inputmode="tel" placeholder="(00) 00000-0000" value="'+esc(f.tel)+'" oninput="mask(this)">'+nav();
+if(s==2)h+='<h2>Saúde</h2><label>Possui alguma alergia? <span class="req">*</span></label><div class="yn"><div class="'+(f.alergia=="sim"?"on":"")+'" onclick="al(\'sim\')">Sim</div><div class="'+(f.alergia=="nao"?"on":"")+'" onclick="al(\'nao\')">Não</div></div>'+(f.alergia=="sim"?'<label>Qual alergia?</label><textarea class="in" id="desc" maxlength="500" placeholder="Descreva a alergia (se houver)">'+esc(f.desc)+'</textarea>':"")+'<label>Observações</label><textarea class="in" id="obs" maxlength="500" placeholder="Observações adicionais (opcional)">'+esc(f.obs)+'</textarea>'+nav();
+if(s==3)h+='<h2>Resumo do Cadastro</h2><div class="sum"><div class="top"><div class="row">♙<div><span>Nome</span><b>'+esc(f.nome)+'</b></div></div><div class="row">◷<div><span>Idade</span><b>'+esc(f.idade)+'</b></div></div><div class="row">▦<div><span>Data de nascimento</span><b>'+fd(f.nasc)+'</b></div></div></div><div class="sec"><h4>'+(P?"Contato":"Responsáveis")+'</h4>'+(P?"Responsável":"Mãe")+': '+esc(f.mae||"—")+'<br>Pai: '+esc(f.pai||"—")+'<br><b>Telefone:</b> '+esc(f.tel)+'</div>'+(P?'<div class="sec"><h4>Piercing</h4><b>Local:</b> '+esc(f.local||"—")+'<br><b>Joia:</b> '+esc(f.joia||"—")+'</div>':"")+'<div class="sec"><h4>Saúde</h4><b>Alergia:</b> '+(f.alergia=="sim"?esc(f.desc||"Sim"):"Não possui")+'<br><b>Observações:</b> '+esc(f.obs||"—")+'</div></div><div class="nav"><button class="btn o" onclick="back()">VOLTAR</button><button class="btn g" onclick="save()">SALVAR CADASTRO ✓</button></div>';
+return h+'</div>'}
+function nav(){return '<div class="nav"><button class="btn o" onclick="back()">VOLTAR</button><button class="btn" onclick="next()">PRÓXIMO &nbsp;→</button></div>'}
+function g(id){var e=document.getElementById(id);return e?e.value.trim():null}
+function grab(){var f=S.f;["nome","idade","nasc","mae","pai","tel","desc","obs","local","joia"].forEach(function(k){var v=g(k);if(v!==null)f[k]=v})}
+function autoAge(v){var i=document.getElementById("idade");if(!v||i.value)return;var p=v.split("-").map(Number),d=new Date(p[0],p[1]-1,p[2]),n=new Date();if(d>n)return;var m=(n.getFullYear()-d.getFullYear())*12+n.getMonth()-d.getMonth();if(n.getDate()<d.getDate())m--;if(m<0)return;i.value=m<12?m+(m==1?" mês":" meses"):Math.floor(m/12)+(Math.floor(m/12)==1?" ano":" anos")}
+function mask(e){var d=e.value.replace(/\D/g,"").slice(0,11),r=d;if(d.length>6)r="("+d.slice(0,2)+") "+d.slice(2,d.length>10?7:6)+"-"+d.slice(d.length>10?7:6);else if(d.length>2)r="("+d.slice(0,2)+") "+d.slice(2);e.value=r}
+function al(v){grab();S.f.alergia=v;R()}
+function mark(ids){var bad=false;ids.forEach(function(i){var e=document.getElementById(i);if(e&&!e.value.trim()){e.classList.add("err");bad=true}});if(bad)msg("Preencha os campos obrigatórios");return!bad}
+function next(){var s=S.step,P=S.f.tipo=="piercing";
+if(s==0){if(!mark(["nome","idade","nasc"]))return;var nasc=g("nasc");if(nasc>new Date().toISOString().slice(0,10)){msg("A data de nascimento não pode ser futura");return}}
+if(s==1){if(!mark(P?["tel"]:["mae","tel"]))return;var tel=(g("tel")||"").replace(/\\D/g,"");if(tel.length<10||tel.length>11){msg("Informe um telefone válido com DDD");return}}
+grab();if(s==2){if(!S.f.alergia){msg("Informe se possui alergia");return}if(S.f.alergia=="sim"&&!S.f.desc.trim()){msg("Descreva a alergia informada");return}}
+S.step++;R();window.scrollTo(0,0)}
+function back(){if(S.scr=="form"){grab();if(S.step>0){S.step--;R()}else go(S.edit?"det":"choose")}else go("list")}
+function pad(x){return("0"+x).slice(-2)}
+async function save(){var f=S.f;if(!S.user)return msg("Faça login novamente");if(f.alergia!="sim")f.desc="";if(f.alergia=="sim"&&!String(f.desc||"").trim())return msg("Descreva a alergia informada");if(S.edit){var o=S.cad.find(function(c){return c.id==S.edit&&mine(c)});if(!o)return msg("Cadastro não encontrado ou sem permissão");f.id=S.edit;f.data=o.data;f.ownerId=S.user.id;S.sel=f.id}else{var n=new Date();f.id="c"+Date.now();f.data=n.getFullYear()+"-"+pad(n.getMonth()+1)+"-"+pad(n.getDate())+"T"+pad(n.getHours())+":"+pad(n.getMinutes());f.por=S.user.nome;f.ownerId=S.user.id}
+try{await put("cadastros",f);S.edit=null;S.q="";S.tab="all";go("list");msg("Cadastro salvo")}catch(e){msg("Falha ao salvar. Confira a conexão e tente novamente.")}}
+function aler(c){return c.alergia=="sim"?esc(c.desc||"Sim"):"Não possui"}
+function mine(c){return !!(S.user&&c.ownerId===S.user.id)}
+function myCad(){return S.cad.filter(mine)}
+function flt(){var q=S.q.toLowerCase();return myCad().filter(function(c){return(c.nome||"").toLowerCase().indexOf(q)>-1&&(!S.flt||c.alergia=="sim")&&(S.tab=="all"||(c.tipo||"bebe")==S.tab)})}
+function vList(){return hdm("Meus Cadastros")+'<div class="list"><div class="search"><input class="in" placeholder="🔍 Buscar por nome..." value="'+esc(S.q)+'" oninput="S.q=this.value;sr()"><button class="fb '+(S.flt?"on":"")+'" title="Somente com alergia" onclick="S.flt=!S.flt;R()">⚲</button></div><div class="tabs">'+[["all","Todos"],["bebe","Furo Humanizado"],["piercing","Piercing"]].map(function(t){return '<span class="'+(S.tab==t[0]?"on":"")+'" onclick="S.tab=\''+t[0]+'\';R()">'+t[1]+'</span>'}).join("")+'</div>'+(S.err?'<div class="emp">'+esc(S.err)+'</div>':"")+'<div id="cl">'+cards(flt())+'</div></div><button class="fab" id="fab" onclick="go(\'choose\')">＋ &nbsp;NOVO CADASTRO</button>'}
+function cards(L){if(!L.length)return'<div class="emp">Nenhum cadastro encontrado.<br>Toque em Novo Cadastro para começar.</div>';return L.map(function(c){return '<div class="card" onclick="S.sel=\''+c.id+'\';go(\'det\')">'+av(c,58)+'<div class="i"><b>'+esc(c.nome)+'</b>'+esc(c.idade)+' • '+fd(c.nasc)+'<br>'+(c.tipo=="piercing"?"Resp.":"Mãe")+': <em>'+esc(c.mae||"—")+'</em><br>Alergia: <em>'+aler(c)+'</em></div><span class="d">'+fd(c.data)+'</span><span class="c">›</span></div>'}).join("")}
+function sr(){var e=document.getElementById("cl");if(e)e.innerHTML=cards(flt())}
+function vDet(){var c=S.cad.find(function(x){return x.id==S.sel&&mine(x)});if(!c){S.scr="list";return vList()}var P=c.tipo=="piercing";
+return '<div class="hd"><button class="l" onclick="go(\'list\')">←</button>Detalhes do Cadastro<button class="r" onclick="ed()">✎</button></div><div class="det"><div class="dc"><div class="top">'+av(c,72)+'<div><b>'+esc(c.nome)+'</b>'+esc(c.idade)+'<br>'+fd(c.nasc)+'</div></div><div class="sec"><h4>'+(P?"Contato":"Responsáveis")+'</h4>'+(P?"Responsável":"Mãe")+': '+esc(c.mae||"—")+'<br>Pai: '+esc(c.pai||"—")+'<br><b>Telefone:</b> '+esc(c.tel)+' &nbsp;<a href="https://wa.me/55'+esc((c.tel||"").replace(/\D/g,""))+'" target="_blank" style="color:var(--p)">WhatsApp</a></div>'+(P?'<div class="sec"><h4>Piercing</h4><b>Local:</b> '+esc(c.local||"—")+'<br><b>Joia:</b> '+esc(c.joia||"—")+'</div>':"")+'<div class="sec"><h4>Saúde</h4><b>Alergia:</b> '+aler(c)+'<br><b>Observações:</b> '+esc(c.obs||"—")+'</div><div class="sec"><h4>Data do cadastro</h4>▦ '+fdt(c.data)+(c.por?'<br>Por: '+esc(c.por):"")+'</div></div><button class="btn o" onclick="del()">EXCLUIR CADASTRO</button></div>'}
+function ed(){var c=S.cad.find(function(x){return x.id==S.sel&&mine(x)});S.f=JSON.parse(JSON.stringify(c));S.f.tipo=S.f.tipo||"bebe";S.edit=c.id;S.step=0;go("form")}
+function del(){if(!S.cad.some(function(c){return c.id==S.sel&&mine(c)}))return msg("Sem permissão para excluir este cadastro");if(confirm("Excluir este cadastro?")){rm("cadastros",S.sel);go("list");msg("Cadastro excluído")}}
+function vRep(){var C=myCad(),n=new Date(),B=[],i;for(i=5;i>=0;i--){var d=new Date(n.getFullYear(),n.getMonth()-i,1),k=d.getFullYear()+"-"+pad(d.getMonth()+1);B.push({l:pad(d.getMonth()+1)+"/"+String(d.getFullYear()).slice(2),n:C.filter(function(c){return(c.data||"").slice(0,7)==k}).length})}
+var mx=Math.max.apply(null,B.map(function(b){return b.n}).concat([1])),m=B[5].n;
+return hdm("Relatórios")+'<div class="pad"><div class="kp"><div><b>'+C.length+'</b><small>Total de cadastros</small></div><div><b>'+m+'</b><small>Neste mês</small></div><div><b>'+C.filter(function(c){return(c.tipo||"bebe")=="bebe"}).length+'</b><small>Furo Humanizado</small></div><div><b>'+C.filter(function(c){return c.tipo=="piercing"}).length+'</b><small>Piercing</small></div><div><b>'+C.filter(function(c){return c.alergia=="sim"}).length+'</b><small>Com alergia</small></div></div><div class="dc"><div class="sec"><h4>Cadastros por mês</h4><div class="bars">'+B.map(function(b){return '<div><i style="height:'+Math.round(b.n/mx*80)+'px"></i>'+b.n+'<br>'+b.l+'</div>'}).join("")+'</div></div></div></div>'}
+function vLem(){var h=hdm("Lembretes")+'<div class="pad"><div class="dc"><div class="sec"><h4>Novo lembrete</h4><input class="in" id="lt" placeholder="Ex: Retorno da Maria Clara"><div style="height:8px"></div><input class="in" id="ld" type="date"><div style="height:10px"></div><button class="btn" onclick="addL()">ADICIONAR</button></div></div>';
+if(!S.lem.length)h+='<div class="emp">Nenhum lembrete.</div>';
+S.lem.forEach(function(l){h+='<div class="lr '+(l.feito?"dn":"")+'"><span class="ck" onclick="togL(\''+l.id+'\')">'+(l.feito?"✓":"")+'</span><div class="tt">'+esc(l.titulo)+'<small>'+fd(l.data)+'</small></div><span class="x" onclick="rm(\'lembretes\',\''+l.id+'\')">✕</span></div>'});
+return h+'</div>'}
+function addL(){var t=g("lt"),d=g("ld");if(!t||!d)return msg("Informe título e data");if(!S.user)return msg("Faça login novamente");put("lembretes",{id:"l"+Date.now(),titulo:t,data:d,feito:false,ownerId:S.user.id}).then(function(){msg("Lembrete adicionado")}).catch(function(){msg("Não foi possível salvar o lembrete")})}
+function togL(id){var l=S.lem.find(function(x){return x.id==id&&S.user&&x.ownerId===S.user.id});if(l){var o=JSON.parse(JSON.stringify(l));o.feito=!o.feito;put("lembretes",o)}}
+function vCfg(){return hdm("Configurações")+'<div class="pad"><div class="dc"><div class="sec"><h4>Nome do estúdio</h4><input class="in" id="cn" value="'+esc(S.cfg.nome)+'"><div style="height:10px"></div><button class="btn" onclick="saveCfg()">SALVAR</button></div></div><div class="dc"><div class="sec"><h4>Backup</h4><p style="margin-bottom:10px">Baixe todos os cadastros em planilha (CSV).</p><button class="btn o" onclick="csv()">EXPORTAR CADASTROS</button></div></div><div class="dc"><div class="sec"><h4>Armazenamento</h4>'+(S.mode=="online"?"☁ Banco de dados online. Todos com acesso ao app veem os mesmos cadastros.":"⚠ Modo local: os dados ficam só neste aparelho e podem ser perdidos se o navegador for limpo.")+'</div></div></div>'}
+async function saveCfg(){var n=g("cn");if(!n)return msg("Informe o nome do estúdio");try{await put("config",{id:"studio",nome:n});msg("Configurações salvas")}catch(e){msg("Não foi possível salvar as configurações")}}
+function csv(){var q=function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'},H=["Tipo","Nome","Idade","Nascimento","Mãe/Responsável","Pai","Telefone","Alergia","Observações","Local","Joia","Cadastro"],r=[H.map(q).join(";")];
+myCad().forEach(function(c){r.push([c.tipo=="piercing"?"Piercing":"Furo Humanizado",c.nome,c.idade,fd(c.nasc),c.mae,c.pai,c.tel,c.alergia=="sim"?c.desc||"Sim":"Não",c.obs,c.local,c.joia,c.data?fdt(c.data):""].map(q).join(";"))});
+var data="\ufeff"+r.join("\n"),name="cadastros-furo-humanizado.csv";
+(async function(){try{var d=window.claude&&claude.use?await claude.use("downloads"):null;if(d){await d.save({filename:name,data:data});return}}catch(e){if(e&&e.code=="user_declined")return}
+try{var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([data],{type:"text/csv"}));a.download=name;a.click()}catch(e){msg("Não foi possível exportar")}})()}
+function vMenu(){function m(i,t,a){return '<div class="mi" onclick="'+a+'"><span>'+i+'</span>'+t+'</div>'}
+return '<div class="ov" onclick="S.menu=false;R()"></div><div class="dr"><div class="h">'+logo(1)+'<small>Profissional</small><strong>'+esc(S.user?S.user.nome:S.cfg.nome)+'</strong><small>'+esc(S.cfg.nome)+'</small></div>'+m("▤","Meus Cadastros","go('list')")+m("⊕","Novo Cadastro","go('choose')")+m("↗","Relatórios","go('rep')")+m("🔔","Lembretes","go('lem')")+m("⚙","Configurações","go('cfg')")+m("⎋","Sair","out()")+'</div>'}
+R();
+</script>
+</body>
+</html>
